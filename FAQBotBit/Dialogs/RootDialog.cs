@@ -30,10 +30,13 @@ namespace FAQBotBit.Dialogs
 
             var document = new SentimentDocument()
             {
-                Id= "YOUR-UNIQUE-ID",
-                Text = "YOUR-TEXT",
+                Id= "23",
+                Text = activity.Text,
                 Language = "en"      
             };
+
+            var request = new SentimentRequest();
+            request.Documents.Add(document);
 
             // calculate something for us to return
             int length = (activity.Text ?? string.Empty).Length;
