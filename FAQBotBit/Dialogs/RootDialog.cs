@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Configuration;
+using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.Bot.Builder.Dialogs;
 using Microsoft.Bot.Connector;
@@ -39,7 +40,7 @@ namespace FAQBotBit.Dialogs
             request.Documents.Add(document);
 
             var response = await _cognitiveClient.GetSentimentAsync(request);
-
+            var retrivedDocument = response.Documents.FirstOrDefault();
             // calculate something for us to return
             int length = (activity.Text ?? string.Empty).Length;
 
