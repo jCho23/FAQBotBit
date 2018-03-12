@@ -38,6 +38,8 @@ namespace FAQBotBit.Dialogs
             var request = new SentimentRequest();
             request.Documents.Add(document);
 
+            var response = await _cognitiveClient.GetSentimentAsync(request);
+
             // calculate something for us to return
             int length = (activity.Text ?? string.Empty).Length;
 
