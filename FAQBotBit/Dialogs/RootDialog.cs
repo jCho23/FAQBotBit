@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Configuration;
 using System.Threading.Tasks;
 using Microsoft.Bot.Builder.Dialogs;
 using Microsoft.Bot.Connector;
@@ -12,7 +13,7 @@ namespace FAQBotBit.Dialogs
 
         public RootDialog()
         {
-            _cognitiveClient = new Microsoft.ProjectOxford.Text.Sentiment.SentimentClient();
+            _cognitiveClient = new Microsoft.ProjectOxford.Text.Sentiment.SentimentClient(ConfigurationManager.AppSettings["2a2ab96ab54b4404a67e3ef637dbb6e4"]);
         }
 
         public Task StartAsync(IDialogContext context)
