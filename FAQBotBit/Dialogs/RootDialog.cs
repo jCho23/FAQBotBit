@@ -3,6 +3,7 @@ using System.Configuration;
 using System.Threading.Tasks;
 using Microsoft.Bot.Builder.Dialogs;
 using Microsoft.Bot.Connector;
+using Microsoft.ProjectOxford.Text.Sentiment;
 
 namespace FAQBotBit.Dialogs
 {
@@ -26,6 +27,13 @@ namespace FAQBotBit.Dialogs
         private async Task MessageReceivedAsync(IDialogContext context, IAwaitable<object> result)
         {
             var activity = await result as Activity;
+
+            var document = new SentimentDocument()
+            {
+                Id= "YOUR-UNIQUE-ID",
+                Text = "YOUR-TEXT",
+                Language = "en"      
+            };
 
             // calculate something for us to return
             int length = (activity.Text ?? string.Empty).Length;
