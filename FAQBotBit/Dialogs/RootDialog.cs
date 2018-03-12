@@ -8,6 +8,13 @@ namespace FAQBotBit.Dialogs
     [Serializable]
     public class RootDialog : IDialog<object>
     {
+        Microsoft.ProjectOxford.Text.Sentiment.SentimentClient _cognitiveClient;
+
+        public RootDialog()
+        {
+            _cognitiveClient = new Microsoft.ProjectOxford.Text.Sentiment.SentimentClient();
+        }
+
         public Task StartAsync(IDialogContext context)
         {
             context.Wait(MessageReceivedAsync);
