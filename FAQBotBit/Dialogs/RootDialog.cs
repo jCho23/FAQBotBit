@@ -41,6 +41,9 @@ namespace FAQBotBit.Dialogs
 
             var response = await _cognitiveClient.GetSentimentAsync(request);
             var retrivedDocument = response.Documents.FirstOrDefault();
+
+            var sentimentScore = retrivedDocument.Score;
+            
             // calculate something for us to return
             int length = (activity.Text ?? string.Empty).Length;
 
